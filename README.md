@@ -20,7 +20,7 @@ This repository contains the source code for the ArborX AI platform, a high-fide
 ### Technology Stack
 - **Frontend**: React 19, TypeScript, Vite, Tailwind CSS 4.0, Recharts, Leaflet
 - **Backend**: Python, Flask, TensorFlow/Keras (Custom CNN), scikit-learn
-- **AI Integration**: Google Gemini API
+- **AI Integration**: Custom LLM Integration
 
 ---
 
@@ -74,13 +74,7 @@ The frontend provides the interactive UI, real-time analytics, and workforce dis
    npm install
    ```
 
-3. **Configure Environment Variables**:
-   Create a `.env` file in the root directory (you can copy `.env.example`) and add your Gemini API Key for the chatbot functionality:
-   ```env
-   VITE_GEMINI_API_KEY=your_api_key_here
-   ```
-
-4. **Start the Frontend Development Server**:
+3. **Start the Frontend Development Server**:
    ```bash
    npm run dev
    ```
