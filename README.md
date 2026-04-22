@@ -6,30 +6,95 @@
 
 This repository contains the source code for the ArborX AI platform, a high-fidelity monitoring system for industrial infrastructure.
 
-
 ## About This Project
 
-**ArborX AI** is a state-of-the-art infrastructure monitoring and vegetation management platform. It leverages high-resolution spectral imagery and deep learning to identify anomalies in industrial corridors, ensuring regional grid integrity and preventing environmental hazards.
+**ArborX AI** is a state-of-the-art infrastructure monitoring and vegetation management platform. It leverages high-resolution spectral imagery and a custom-built Convolutional Neural Network (CNN) to identify anomalies in industrial corridors, ensuring regional grid integrity and preventing environmental hazards.
 
 ### Core Features
-- **Neural Processing Pipeline**: Automated multi-spectral data analysis using the proprietary *ArborDetect* CNN architecture.
-- **Territory Risk Heatmaps**: Real-time visual tracking of structural anomalies and vegetation encroachment across high-voltage sectors.
-- **Data Insights**: A comprehensive archive of industrial imagery calibrated for model training and environmental synthesis.
+- **Neural Processing Pipeline**: Automated multi-spectral data analysis using our custom-built *ArborDetect* CNN architecture.
+- **Real-Time Analytics Dashboard**: Live telemetry of model performance, training convergence, and VRAM utilization.
+- **Territory Risk Heatmaps**: Interactive map tracking of structural anomalies, active crews, and vegetation encroachment across high-voltage sectors.
 - **Professional Reporting**: Integrated PDF export engine for technical audits and board-level executive briefings.
-- **Predictive ROI Analytics**: Maintenance planning tools that calculate savings from preventative vs. reactive infrastructure work.
+- **Chatbot Integration**: Context-aware AI assistant for platform navigation and data querying.
 
 ### Technology Stack
-- **Frontend**: React 19, TypeScript, Vite
-- **Styling**: Tailwind CSS 4.0, Lucide Icons, Framer Motion
-- **Data Visualization**: Recharts (for uptime and accuracy trends)
-- **Document Generation**: jsPDF
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS 4.0, Recharts, Leaflet
+- **Backend**: Python, Flask, TensorFlow/Keras (Custom CNN), scikit-learn
+- **AI Integration**: Google Gemini API
 
-## Run Locally
+---
 
-**Prerequisites:** Node.js
+## 🚀 Setup & Installation Guide
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+This project requires running both the **React Frontend** and the **Python Flask Backend** simultaneously. Follow the step-by-step instructions below.
+
+### 1. Setup the Python Backend (Machine Learning & API)
+
+The backend handles image processing, anomaly detection, and serving the custom CNN model predictions.
+
+1. **Navigate to the server directory**:
+   ```bash
+   cd server
+   ```
+
+2. **Create a Python Virtual Environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   ```
+
+3. **Install Required Packages**:
+   This will install all necessary ML and server dependencies including Flask, TensorFlow, scikit-learn, and matplotlib.
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **(Optional) Train the CNN Model**:
+   If you want to train the model from scratch on the latest datasets:
+   ```bash
+   python prepare_data.py
+   python train.py
+   ```
+
+5. **Start the Backend Server**:
+   ```bash
+   python app.py
+   ```
+   *The server will start running on `http://127.0.0.1:5001`.*
+
+### 2. Setup the React Frontend
+
+The frontend provides the interactive UI, real-time analytics, and workforce dispatch mapping.
+
+1. **Open a new terminal window** and navigate to the root directory of the project.
+
+2. **Install Required Packages**:
+   This installs all React dependencies.
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables**:
+   Create a `.env` file in the root directory (you can copy `.env.example`) and add your Gemini API Key for the chatbot functionality:
+   ```env
+   VITE_GEMINI_API_KEY=your_api_key_here
+   ```
+
+4. **Start the Frontend Development Server**:
+   ```bash
+   npm run dev
+   ```
+   *The web application will open on your local host (usually `http://localhost:3000` or `http://localhost:5173`).*
+
+---
+
+## 🔐 Demo Login Credentials
+
+You can use the built-in "Quick Select" buttons on the login page to automatically sign in, or you can manually use any of the following authorized crew accounts:
+
+| Name | Username (Email) | Password |
+| :--- | :--- | :--- |
+| **Pranav M. Sangeeth** | `pranav@arborx.ai` | `admin123` |
+| **R. Gangadharan** | `ganga@arborx.ai` | `admin123` |
+| **K. Madhuvinesh** | `madhu@arborx.ai` | `admin123` |
+| **Naveena I.** | `naveena@arborx.ai` | `admin123` |
