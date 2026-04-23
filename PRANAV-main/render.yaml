@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: arborx-ai-backend
+    env: python
+    buildCommand: "pip install -r server/requirements.txt"
+    startCommand: "gunicorn --chdir server app:app"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: TF_CPP_MIN_LOG_LEVEL
+        value: "2"
