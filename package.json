@@ -4,9 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start:frontend": "vite --port=3000 --host=0.0.0.0",
-    "start:backend": "cd server && source venv/bin/activate && python app.py",
-    "dev": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
